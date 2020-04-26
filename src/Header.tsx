@@ -1,10 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <nav>
-      <a href="#">App 1</a>
-      <a href="#">App 2</a>
+      <Link to="/">Host</Link>
+      <Link to="/app1">App 1</Link>
+      <Link to="/app2">App 2</Link>
     </nav>
   );
 }
