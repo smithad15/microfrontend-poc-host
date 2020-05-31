@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-
-import './index.css';
+// Remove CSS for now to keep webpack setup simple
+// import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

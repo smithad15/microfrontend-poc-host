@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
-const App1 = lazy(() => import('./App1'));
+const App1 = lazy(() => import('app1/mainEntry'));
 const App2 = lazy(() => import('./App2'));
 
 const App = () => (
