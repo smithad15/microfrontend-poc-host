@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const remotesMap = require('./remotes');
 
 const mode = process.env.NODE_ENV || 'production';
 
@@ -33,8 +35,12 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'host',
       remoteType: 'var',
-      remotes: ['app1'],
+      remotes: Object.keys(remotesMap),
       shared: ['react', 'react-dom'],
+    }),
+    new InterpolateHtmlPlugin(HtmlWebpackPlugin, {
+      PUBLIC_URL: process.env.PUBLIC_URL || '',
+      ...remotesMap,
     }),
   ],
   devServer: {
